@@ -65,7 +65,7 @@ const WelcomeComponent: React.FC<WelcomeProps> = ({
             </WelcomeContent>
             <WelcomeImage>
                 <Image 
-                src="/image.svg"
+                src="/welcome.png"
                 width={600}
                 height={600}
                 />
