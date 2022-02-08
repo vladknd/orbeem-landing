@@ -47,7 +47,7 @@ const InfoComponent = () => {
 
                 <InfoImage>
                     <Image
-                        src="/image_info.svg"
+                        src="/image_info.png"
                         width={700}
                         height={700}
                     />
