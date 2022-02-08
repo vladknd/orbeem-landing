@@ -47,7 +47,7 @@ const InfoComponent = () => {
 
                 <InfoImage>
                     <Image
-                        src="/image_info.png"
+                        src="/image_info.webp"
                         width={700}
                         height={700}
                     />
