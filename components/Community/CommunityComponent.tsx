@@ -36,11 +36,12 @@ const CommunityComponent = () => {
                 JOIN OUR COMMUNITY
             </Text>
             <MediaContainer>
-                <MediaIcon img="/media/inst.png" link="https://instagram.com/orbeem.io?utm_medium=copy_link"/>
+                <MediaIcon img="/media/inst.png" link="https://www.instagram.com/orbeem_orb/"/>
                 <MediaIcon img="/media/discord.png"link="https://discord.gg/66C9NThy4Y"/>
                 <MediaIcon img="/media/youtube.png" link="https://www.youtube.com/channel/UCzdsuAip2pnf5munqiVbnwQ"/>
-                <MediaIcon img="/media/twitter.png" link="https://twitter.com/IoOrbeem"/>
+                <MediaIcon img="/media/twitter.png" link="https://twitter.com/Orbeem_ORB"/>
                 <MediaIcon img="/media/telegram.png" link="https://t.me/orbeemRBM"/>
+                <MediaIcon img="/media/facebook.png" link="https://www.facebook.com/Orbeem/"/>
             </MediaContainer>
             <Text
                 font="Corbel"

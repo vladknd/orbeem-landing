@@ -10,7 +10,7 @@ export const CommunityContainer = styled.div`
 
     width: 100%;
     height: 600px;
-    background-image: url("community_shape.svg");
+    background-image: url("comm.svg");
     background-position: center;
     background-size: 1400px;
 

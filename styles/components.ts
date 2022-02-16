@@ -20,6 +20,7 @@ export const Button = styled.button`
     border-radius: 19px;
     border: none;
     
+    
     font-family: "Corbel";
     font-size: 30px;
     letter-spacing: 4px;
@@ -27,6 +28,8 @@ export const Button = styled.button`
     color: white;
     background: ${colors.gradientBg};
 
+    z-index: 4;
+    
     &&:hover {
         opacity: 0.9;
     }

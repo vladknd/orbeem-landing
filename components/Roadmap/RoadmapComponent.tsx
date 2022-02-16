@@ -12,7 +12,7 @@ const RoadmapComponent = () => {
     return (
         <RoadmapContainer>
             <Image
-                src="/roadmap_.svg"
+                src="/road.svg"
                 width={1920}
                 height={500}
             />  
