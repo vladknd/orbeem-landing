@@ -16,7 +16,7 @@ import {
 
 const PartnersComponent = () => {
     return (
-        <PartnersContainer>
+        <PartnersContainer id="partners-section">
             <Card
                 width="1100px"
                 height="250px"

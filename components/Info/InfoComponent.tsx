@@ -20,7 +20,7 @@ const InfoComponent = () => {
             <Divider
                 mt="150px"
             />
-            <InfoContainer>
+            <InfoContainer id="info-section">
                 <InfoContent>
                     <Text
                         font="Arial"

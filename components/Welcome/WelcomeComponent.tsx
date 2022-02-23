@@ -24,7 +24,7 @@ const WelcomeComponent: React.FC<WelcomeProps> = ({
 }) => {
     
     return (
-        <WelcomeContainer>
+        <WelcomeContainer id="home-section">
             <WelcomeContent>
                 <GlowText
                     size="90px"

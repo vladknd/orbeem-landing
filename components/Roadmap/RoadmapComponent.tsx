@@ -10,7 +10,7 @@ import {
 //#------------------BODY-------------------#
 const RoadmapComponent = () => {
     return (
-        <RoadmapContainer>
+        <RoadmapContainer id="roadmap-section">
             <Image
                 src="/road.svg"
                 width={1920}

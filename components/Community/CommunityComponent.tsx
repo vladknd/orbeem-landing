@@ -20,7 +20,7 @@ const CommunityComponent = () => {
     return (
         <>
         <Divider/>
-        <CommunityContainer>
+        <CommunityContainer id="community-section">
             <Text
                 font="Corbel"
                 size="16px"

@@ -121,6 +121,17 @@ export const Modal = styled.div`
 
     position: fixed;
     z-index: 11;
+
+    //HIDING INPUT ARROWS:
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type=number] {
+        -moz-appearance:textfield; 
+    }
 `
 
 
@@ -139,7 +150,8 @@ export const Input = styled.input`
     color: white;
     font-size: 20px;
     text-align: center;
-    
+
+    min: "1";
 `
 
 interface LabelProps {
@@ -155,7 +167,7 @@ export const Label = styled.label`
     
 `
 
-//------------------------------INPUT------------------------------
+//------------------------------CARD------------------------------
 interface CardProps {
     width?: string;
     height?: string;

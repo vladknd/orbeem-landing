@@ -35,6 +35,11 @@ const Home: NextPage = () => {
 
   return (
     <div>
+      <Head>
+        <title>My page title</title>
+        <meta property="og:title" content="ORBEEM-Space" key="title" />
+        <meta property="og:image" content="/bg-fb.png"></meta>
+      </Head>
       {modal ? <ModalBuyComponent handleModal={handleModal}/> : null}
       <HeaderComponent/>  
       
