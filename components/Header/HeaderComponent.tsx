@@ -5,8 +5,7 @@ import Link from 'next/link'
 //#------------------LOCAL-IMPORTS-------------------#
 import { 
     HeaderContainer,
-    HeaderSide,
-    HeaderLink
+    HeaderSide
 } from './Header.styled'
 
 import { 
