@@ -8,9 +8,9 @@ import {
     LogoContainer
 } from './Header.styled'
 
-import { 
-    Text
-} from '../../styles/Components.styled'
+// import { 
+//     Text
+// } from '../../styles/Components.styled'
 
 interface HeaderProps {
     isMobile: boolean;
