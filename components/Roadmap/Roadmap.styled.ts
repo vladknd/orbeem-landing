@@ -1,14 +1,17 @@
 import styled from 'styled-components'
 
 export const RoadmapContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    width: 100%;
-    height: 900px;
-    background-image: url("/waves2.svg");
-    background-size: contain;
+    height: 400px;
+    background-image: url('horizontal_roadmap.svg');
+    background-size: 2000px;
+    background-position: 100% 50%;
     background-repeat: no-repeat;
+    margin: 30px 0px;
+
+    @media(max-width: 600px){
+        background-image: url('vertical_roadmap.svg');
+        background-size: 370px; 
+        background-position: 50% 100%;
+        height: 780px;
+    }
 `

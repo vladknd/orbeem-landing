@@ -1,28 +1,47 @@
 import styled from 'styled-components'
-import { colors } from '../../styles/variables'
+import { colors } from '../../styles/colors'
 
 export const WelcomeContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap-reverse;
 
-    background-image: url('/mainBg.jpg');
-    width: 100%;
-    height: 800px;
+    width: 100vw;
+
+    margin: 150px 0;
+    /* @media (max-width: 600px) {
+        width: 1100px;   
+        height: 1800px;
+    } */
 `
 
 export const WelcomeContent = styled.div`
     display: flex;
     flex-direction: column;
+
     padding: 20px 4 0px;
+    width: 900px;
 
 `
 
 export const WelcomeImage = styled.div`
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 700px;
-    height: 600px;
+
+    z-index: 1;
 `
 
+export const WelcomeHeader = styled.h3`
+    color: white;
+    font-size: 35px;
+    font-weight: 300;
+
+    margin: 0px;
+`
+
+export const WelcomeText = styled.p`
+    font-size: 25px;
+    color: white;
+    opacity: 0.6;
+`

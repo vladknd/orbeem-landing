@@ -1,17 +1,22 @@
 import styled from 'styled-components'
-import { colors } from '../variables'
+import { colors } from '../colors'
 
 //SECTION1:
-export const MainContainer = styled.div`
+export const IndexContainer = styled.div`
     display: flex;
     flex-direction: column;
     /* justify-content: space-around; */
     /* align-items: center; */
 
-    background-image: url('/mainBg.jpg');
-    width: 100%;
-    /* height: 3600px; */
-    padding-top: 150px;
+    background-image: url('/bg.jpg');
+    /* background: black; */
+    background-repeat: repeat;
+    background-position: center;
+    width: 100%;    
+    /* height: 1600px;x */
+    /* @media (max-width: 600px) {
+        width: 1100px;   
+    } */
 
 `
 export const Waves1 = styled.div`
@@ -23,10 +28,3 @@ export const Waves1 = styled.div`
     z-index: 0;
 `
 
-//SECTION2:
-export const Section2 = styled.div`
-
-`
-export const Section3 = styled.div`
-
-`
