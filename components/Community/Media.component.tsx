@@ -9,9 +9,9 @@ import {
     BigText
 } from './Media.styled'
 
-import {
-    Divider,
-} from '../../styles/Components.styled'
+// import {
+//     Divider,
+// } from '../../styles/Components.styled'
 
 interface MediaIconProps {
     img: string;
@@ -57,7 +57,7 @@ export const MediaComponent: React.FC = () => {
             </IconsContainer>
 
             <BigText>
-             LET'S CONNECT THE <br/> FUTURE WITH THE PRESENT
+             LET S CONNECT THE <br/> FUTURE WITH THE PRESENT
             </BigText>
         </MediaContainer>
     )
