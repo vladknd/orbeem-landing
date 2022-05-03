@@ -5,7 +5,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@ap
 import { UserProvider } from '../auth/userContext'
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
+  uri: 'https://orbeem-landing-api.herokuapp.com/graphql',
   cache: new InMemoryCache(),
 });
 
