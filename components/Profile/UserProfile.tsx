@@ -20,7 +20,7 @@ import { UserContext, useUser} from '../../auth/userContext'
 //-------------------CALCULATOR-COMPONENT----------------------------------
 interface IInputField {
     placeholder: string;
-    image?: string;
+    image: string;
     change?: (e: any) => void;
     value?: number;
 }
