@@ -15,14 +15,14 @@ const client = new ApolloClient({
 
 function MyApp({ Component, pageProps }: AppProps) {
 
-  useEffect(() => {
+  // useEffect(() => {
     
-  }, [])
+  // }, [])
   return (
     <ApolloProvider client={client}>
-      <UserProvider>
+      {/* <UserProvider> */}
         <Component {...pageProps} />
-      </UserProvider>
+      {/* </UserProvider> */}
     </ApolloProvider>
   )
 }
