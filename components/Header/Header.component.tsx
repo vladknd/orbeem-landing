@@ -11,7 +11,7 @@ import {
     LogoContainer,
     HeaderLink
 } from './Header.styled'
-import { connectUser, useConnect } from '../../web3/web3Utils'
+import { connectUser } from '../../web3/web3Utils'
 import { QUERY_USER_BY_PUBLIC_ADDRESS } from '../../graphql/queries/user.queries'
 import { useLazyQuery, useMutation } from '@apollo/client'
 import { VERIFY_USER } from '../../graphql/mutations/user.mutations'
