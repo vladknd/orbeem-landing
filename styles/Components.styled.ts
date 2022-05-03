@@ -4,33 +4,19 @@ import {colors} from './colors'
 //------------------------------TEXT------------------------------:
 interface TextProps {
     font?: string;
+    size?: string;
     bold?: boolean;
     opacity?: number;
     lh?: number;
     m?: string;
     p?: string;
+
 }
-
-// export const Text = styled.p`
-//      font-family: ${(props: TextProps) => props.font || "Arial"};
-//      font-weight: ${(props: TextProps) => props.bold ? "bold" : "normal"};
-
-//      color: white;
-//      opacity: ${(props: TextProps) => props.opacity || 1};
-     
-//      margin: ${(props: TextProps) => props.m || 0};
-//      padding: ${(props: TextProps) => props.p || 0};
-//      line-height: ${(props: TextProps) => props.lh || 1};     
-// `
-
-// export const RoadText = styled.p`
-//     position: absolute;
-//     margin: 10px 0 0 900px;
-// `
 
 export const GlowText = styled.p`
     font-family: ${(props: TextProps) => props.font || "Arial"};
     font-weight: ${(props: TextProps) => props.bold ? "bold" : "normal"};
+    font-size: ${(props: TextProps) => props.size ? props.size : "80px"};
 
     color: white;
     opacity: ${(props: TextProps) => props.opacity || 1};
@@ -40,34 +26,20 @@ export const GlowText = styled.p`
     line-height: ${(props: TextProps) => props.lh || 1}; 
     
     text-shadow: 0px 0px 6px rgba(29, 173, 255, 0.25), 0px 0px 33px #B04BFF;
-    font-size: 120px;
+    
 
     @media(max-width: 600px) {
         font-size: 50px;
     }
 `
 
-// export const HeaderText = styled(Text)`
-//     font-size: 40px;
-//     @media(max-width: 600px) {
-//         font-size: 30px;
-//     }
-// `
-
-// export const PlainText = styled(Text)`
-//     font-size: 25px;
-//     @media(max-width: 600px) {
-//         font-size: 20px;
-//     }
-// `
-
 //------------------------------BUTTON------------------------------:
 interface ButtonProps {
     width?: string;
     height?: string;
 
-    mt?: number;
-    mb?: number;
+    mt?: string;
+    mb?: string;
     ml?: number;
     mr?: number;
 
@@ -79,8 +51,8 @@ export const Button = styled.button`
     color: white;
     background: ${colors.gradientBg};
 
-    margin-top: ${(props) => `${props.mt}px` || "0px"};
-    margin-bottom: ${(props) => `${props.mb}px` || "0px"};
+    margin-top: ${(props: ButtonProps) => props.mt || "0px"};
+    margin-bottom: ${(props: ButtonProps) => props.mb || "0px"};
     border-radius: 19px;
     border: none;
     
@@ -88,7 +60,8 @@ export const Button = styled.button`
     font-size: 30px;
     letter-spacing: 4px;
 
-    align-self: ${(props: ButtonProps) => props.align || "start"};
+    align-self: center;
+    /* justify-self:end; */
     z-index: 4;
     
     &&:hover {
@@ -118,4 +91,16 @@ export const Divider = styled.div`
     margin-top: ${(props: DividerProps) => props.mt || 0};
     margin-bottom: ${(props: DividerProps) => props.mb || 0};
 
+`
+
+
+export const Box = styled.div`
+    background: rgba(14, 14, 14, 0.7);
+    box-shadow: inset -5px -4px 4px rgba(0, 0, 0, 0.25), 
+    inset 4px 4px 4px rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(41px);
+    border-radius: 15px;
+`
+export const BoxHeader = styled.h2`
+    color: white;
 `

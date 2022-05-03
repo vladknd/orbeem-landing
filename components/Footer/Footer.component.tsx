@@ -5,7 +5,7 @@ import { FooterContainer, FooterText } from './Footer.styled'
 const FooterComponent = () => {
     return (
         <>
-        <Divider/>
+        {/* <Divider/> */}
         <FooterContainer>
             <Image
                 src="/logo_vertical.svg"

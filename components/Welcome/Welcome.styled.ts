@@ -7,13 +7,10 @@ export const WelcomeContainer = styled.div`
     justify-content: space-around;
     flex-wrap: wrap-reverse;
 
-    width: 100vw;
+    width: 100%;
 
-    margin: 150px 0;
-    /* @media (max-width: 600px) {
-        width: 1100px;   
-        height: 1800px;
-    } */
+    margin: 150px 0px 20px 0px;
+    
 `
 
 export const WelcomeContent = styled.div`
