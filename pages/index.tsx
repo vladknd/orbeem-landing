@@ -23,10 +23,7 @@ import EcosystemComponent from '../components/Ecosystem/Ecosystem.component'
 
 const LS_KEY = 'login-with-metamask:auth';
 
-const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
-  cache: new InMemoryCache()
-});
+
 
 interface AuthState {
   accessToken?: string;
@@ -59,7 +56,6 @@ const Home: NextPage = () => {
   // console.log(window);
   
   return (
-    <ApolloProvider client={client}>
     <IndexContainer>
       {registered ? null : <RegistrationComponent/>}
       <HeaderComponent/>
@@ -70,7 +66,6 @@ const Home: NextPage = () => {
       <EcosystemComponent/>
       <FooterComponent/>
     </IndexContainer>
-    </ApolloProvider>
   )
 }
 

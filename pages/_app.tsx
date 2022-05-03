@@ -18,13 +18,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   // useEffect(() => {
     
   // }, [])
-  return <Component {...pageProps} />
-    // <ApolloProvider client={client}>
-      {/* <UserProvider> */}
-        
-      {/* </UserProvider> */}
-    // </ApolloProvider>
-  
+  return (
+    <ApolloProvider client={client}>
+      <UserProvider>
+        <Component {...pageProps} />
+      </UserProvider>
+    </ApolloProvider>
+  )
 }
 
 export default MyApp
