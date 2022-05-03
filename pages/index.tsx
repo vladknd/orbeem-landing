@@ -59,7 +59,7 @@ const Home: NextPage = () => {
   // console.log(window);
   
   return (
-    // <ApolloProvider client={client}>
+    <ApolloProvider client={client}>
     <IndexContainer>
       {registered ? null : <RegistrationComponent/>}
       <HeaderComponent/>
@@ -70,7 +70,7 @@ const Home: NextPage = () => {
       <EcosystemComponent/>
       <FooterComponent/>
     </IndexContainer>
-    // </ApolloProvider>
+    </ApolloProvider>
   )
 }
 
