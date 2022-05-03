@@ -5,7 +5,7 @@ import { useMediaQuery } from 'react-responsive'
 import Router from 'next/router'
 import { setCookies } from 'cookies-next'
 //#------------------LOCAL-IMPORTS-------------------#
-import { buyToken, checkBalance, withdraw, getAccount, signMessage } from '../../web3/web3Utils'
+import { buyToken, getAccount, signMessage } from '../../web3/web3Utils'
 import data from './Welcome.data'
 //-------------------STYLED-COMPONENTS:
 import { 
