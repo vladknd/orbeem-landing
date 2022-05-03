@@ -1,13 +1,6 @@
-import Web3 from 'web3';
-import { useLazyQuery, useMutation, useQuery } from '@apollo/client'
-
 import Market from '../ABI/Market'
-import Receiver from '../ABI/Receiver';
 import DAI from '../ABI/DAI';
 
-import { QUERY_USER } from '../graphql/queries/user.queries'
-import { VERIFY_USER } from '../graphql/mutations/user.mutations'
-import { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 import { setCookies } from 'cookies-next';
 import Router from 'next/router';
@@ -20,10 +13,10 @@ export const buyToken = async (amountUSDT: number) => {
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         const signer = provider.getSigner()
         
-        const market = new ethers.Contract("0x18263494346178c673D9aFa918BF9569A2943fdf", Market, signer)
-        const dai = new ethers.Contract("0xcB1e72786A6eb3b44C2a2429e317c8a2462CFeb1", DAI, signer)
+        const market = new ethers.Contract("0x72B52c1D413CfDF585334352098a0ED49973836D", Market, signer)
+        const dai = new ethers.Contract("0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063", DAI, signer)
         
-        await dai.approve("0x18263494346178c673D9aFa918BF9569A2943fdf", numberOfTokens)
+        await dai.approve("0x72B52c1D413CfDF585334352098a0ED49973836D", numberOfTokens)
 
         const options = {
             gasLimit: 100000,
@@ -42,7 +35,7 @@ export const checkBalanceDAI = async () => {
     if(typeof window.ethereum !== "undefined"){
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         const signer = provider.getSigner()
-        const market = new ethers.Contract("0x18263494346178c673D9aFa918BF9569A2943fdf", Market, signer)
+        const market = new ethers.Contract("0x72B52c1D413CfDF585334352098a0ED49973836D", Market, signer)
         const tx = await market.balanceDAI()
         const balance = ethers.utils.formatEther(tx.toString());
         console.log("BALANCE", balance)
@@ -54,7 +47,7 @@ export const withdrawDAI = async () => {
     if(typeof window.ethereum !== "undefined"){
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         const signer = provider.getSigner()
-        const market = new ethers.Contract("0x18263494346178c673D9aFa918BF9569A2943fdf", Market, signer)
+        const market = new ethers.Contract("0x72B52c1D413CfDF585334352098a0ED49973836D", Market, signer)
         const tx = await market.withdrawDAI()
         await tx.wait()
     }
@@ -64,7 +57,7 @@ export const checkBalanceORBM = async () => {
     if(typeof window.ethereum !== "undefined"){
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         const signer = provider.getSigner()
-        const market = new ethers.Contract("0x18263494346178c673D9aFa918BF9569A2943fdf", Market, signer)
+        const market = new ethers.Contract("0x72B52c1D413CfDF585334352098a0ED49973836D", Market, signer)
         const tx = await market.balanceORBM()
         const balance = ethers.utils.formatEther(tx.toString());
         console.log("BALANCE", balance)
@@ -76,7 +69,7 @@ export const withdrawORBM = async () => {
     if(typeof window.ethereum !== "undefined"){
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         const signer = provider.getSigner()
-        const market = new ethers.Contract("0x18263494346178c673D9aFa918BF9569A2943fdf", Market, signer)
+        const market = new ethers.Contract("0x72B52c1D413CfDF585334352098a0ED49973836D", Market, signer)
         const tx = await market.withdrawORBM()
         await tx.wait()
     }
@@ -118,13 +111,6 @@ export const signMessage = async (nonce: string, publicAddress: string) => {
         signature
     }
 }
-
-// export const useConnect = async () => {
-    
-//         const [checkUser] = useLazyQuery(QUERY_USER_BY_PUBLIC_ADDRESS)
-//         const [verifyUser] = useMutation(VERIFY_USER)
-//         return [connectUser]
-// }
 
 export const connectUser = async (checkUser:any, verifyUser: any) => {
     const addr = await getAccount()

@@ -1,5 +1,5 @@
 export default {
     header: "UNIFYING NFT SPACE AND ESPORTS",
-    text: "ORBEEM - IS an nft platform connecting the nft world and esports. Similar to play-to-earn projects we give our users a chance to earn rewards for playing various games. the whole system is based on our nft marketplace. All you need to start earning is to purchase an nft for your game of choice, link your game account to orbeem and start playing! ",
+    text: "ORBEEM - IS AN NFT PLATFORM CONNECTING THE NFT WORLD AND ESPORTS. SIMILAR TO PLAY-TO-EARN PROJECTS WE GIVE OUR USERS A CHANCE TO EARN REWARDS FOR PLAYING VARIOUS GAMES. THE WHOLE SYSTEM IS BASED ON OUR NFT MARKETPLACE. ALL YOU NEED TO START EARNING IS TO PURCHASE AN NFT FOR YOUR GAME OF CHOICE, LINK YOUR GAME ACCOUNT TO ORBEEM AND START PLAYING! ",
     image: "/image_info.webp"
 }

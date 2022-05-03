@@ -1,27 +1,27 @@
 export const phases = [
     {
         header: "PHASE 1: TOKEN LAUNCH",
-        text: "In the core of our platform lies our native token - ORBM.All rewards will be payed in ORBM tokens. in the first phase of our project we launch our token and give investors and other sponsors to purchase a limited amount of  tokens for a fixed price of 0,1DAI.",
+        text: "IN THE CORE OF OUR PLATFORM LIES OUR NATIVE TOKEN - ORBM.ALL REWARDS WILL BE PAYED IN ORBM TOKENS. IN THE FIRST PHASE OF OUR PROJECT WE LAUNCH OUR TOKEN AND GIVE INVESTORS AND OTHER SPONSORS TO PURCHASE A LIMITED AMOUNT OF  TOKENS FOR A FIXED PRICE OF 0,1DAI.",
         image: "/Phase1.svg"
     },
     {
         header: "PHASE 2:  NFT MARKETPLACE",
-        text: "our platform is based on non fungible nfts. for a user to start earning rewards, one has to purchase an nft for a specific game. In the second phase of our project we will launch a marketplace with an nft collection for one game. users will be able to purchase nfts and get ready for gaming! ",
+        text: "OUR PLATFORM IS BASED ON NON FUNGIBLE NFTS. FOR A USER TO START EARNING REWARDS, ONE HAS TO PURCHASE AN NFT FOR A SPECIFIC GAME. IN THE SECOND PHASE OF OUR PROJECT WE WILL LAUNCH A MARKETPLACE WITH AN NFT COLLECTION FOR ONE GAME. USERS WILL BE ABLE TO PURCHASE NFTS AND GET READY FOR GAMING! ",
         image: "/Phase2.svg"
     },
     {
         header: "PHASE 3:  DOTA REWARDS",
-        text: "In this phase the core feature of the platform will be implemented. the first game to be integrated with orbeem is dota2. Users will be able to link their dota account to orbeem and start earning rewards for playing.",
+        text: "IN THIS PHASE THE CORE FEATURE OF THE PLATFORM WILL BE IMPLEMENTED. THE FIRST GAME TO BE INTEGRATED WITH ORBEEM IS DOTA2. USERS WILL BE ABLE TO LINK THEIR DOTA ACCOUNT TO ORBEEM AND START EARNING REWARDS FOR PLAYING.",
         image: "/Phase3.svg"
     },
     {
         header: "PHASE 4:  BETS",
-        text: "Besides rewards for playing esports, our platform will provide a functionality to make bets on your games. all bets will be made using our native token - orbM. The deposited tokens will be frozen until the game is over, and then the accumulated amount will be distributed amongst the members of the winning team.",
+        text: "BESIDES REWARDS FOR PLAYING ESPORTS, OUR PLATFORM WILL PROVIDE A FUNCTIONALITY TO MAKE BETS ON YOUR GAMES. ALL BETS WILL BE MADE USING OUR NATIVE TOKEN - ORBM. THE DEPOSITED TOKENS WILL BE FROZEN UNTIL THE GAME IS OVER, AND THEN THE ACCUMULATED AMOUNT WILL BE DISTRIBUTED AMONGST THE MEMBERS OF THE WINNING TEAM.",
         image: "/Phase4.svg"
     },
     {
         header: "PHASE 5:  TOURNAMENTS",
-        text: "Besides rewards for playing esports, our platform will provide a functionality to make bets on your games. all bets will be made using our native token - orb. The deposited tokens will be frozen until the game is over, and then the accumulated amount will be distributed amongst the members of the winning team.",
+        text: "BESIDES REWARDS FOR PLAYING ESPORTS, OUR PLATFORM WILL PROVIDE A FUNCTIONALITY TO MAKE BETS ON YOUR GAMES. ALL BETS WILL BE MADE USING OUR NATIVE TOKEN - ORB. THE DEPOSITED TOKENS WILL BE FROZEN UNTIL THE GAME IS OVER, AND THEN THE ACCUMULATED AMOUNT WILL BE DISTRIBUTED AMONGST THE MEMBERS OF THE WINNING TEAM.",
         image: "/Phase5.svg"
     }
 ]
