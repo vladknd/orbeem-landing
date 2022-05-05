@@ -132,7 +132,7 @@ export const login = async () => {
     console.log("LOGIN PROCEDURE: CURRENT ADDRESS", addr);
 
     console.log("LOGIN PROCEDURE: CHECK USER REQUEST")
-    const checkUserRes = await fetch("http://localhost:4000/graphql", {
+    const checkUserRes = await fetch("https://orbeem-landing-api.herokuapp.com/graphql", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -164,7 +164,7 @@ export const login = async () => {
         console.log("LOGIN PROCEDURE: SIGNATURE",sigMsg)
 
         console.log("LOGIN PROCEDURE: USER VERIFICATION REQUEST")
-        const verifyUserRes = await fetch("http://localhost:4000/graphql", {
+        const verifyUserRes = await fetch("https://orbeem-landing-api.herokuapp.com/graphql", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
