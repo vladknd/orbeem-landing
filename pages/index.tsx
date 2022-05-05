@@ -2,12 +2,6 @@ import { useEffect, useState } from 'react'
 import type { NextPage } from 'next'
 import { useMediaQuery } from 'react-responsive'
 
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider
-} from "@apollo/client"
-
 import CommunityComponent from '../components/Community/Community.component'
 import HeaderComponent from '../components/Header/Header.component'
 import WelcomeComponent from '../components/Welcome/Welcome.component'
@@ -18,50 +12,19 @@ import FooterComponent from '../components/Footer/Footer.component'
 import { 
   IndexContainer 
 } from '../styles/pages/Index.styled'
-import RegistrationComponent from '../components/Registration/Registration.component'
 import EcosystemComponent from '../components/Ecosystem/Ecosystem.component'
 import { getAccount } from '../web3/web3Utils'
 
-// const LS_KEY = 'login-with-metamask:auth';
-
-
-
-// interface AuthState {
-//   accessToken?: string;
-// }
 const Home: NextPage = () => {
   //ADAPTIVE:
   const isMobile = useMediaQuery({ query: '(min-width: 1000px)' })
   useEffect(() => {
   }, [isMobile])
   
-  //AUTHORIZATION:
-  // const [ authState, setAuthState ] = useState<AuthState>({})
-  const [registered, setRegistered] = useState<boolean>(true)
-  // useEffect(() => {
-  //   const ls = window.localStorage.getItem(LS_KEY)
-  //   const token = ls && JSON.parse(ls)
-  //   setAuthState({accessToken: token})
-  // }, [])
-
-  // const handleLogin = (accessToken: string) => {
-  //   localStorage.setItem(LS_KEY, accessToken)
-  //   setAuthState({ accessToken })
-  // }
-
-  // const handleLogout = () => {
-  //   localStorage.removeItem(LS_KEY)
-  //   setAuthState({ accessToken: undefined })
-  // }
-
-  //META:
-  
-
   return (
     <IndexContainer>
-      {registered ? null : <RegistrationComponent/>}
       <HeaderComponent />
-      <WelcomeComponent isMobile={isMobile} setModal={setRegistered}/>
+      <WelcomeComponent isMobile={isMobile}/>
       <CommunityComponent isMobile={isMobile}/>
       <InfoComponent/>
       <RoadmapComponent/>
