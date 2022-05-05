@@ -1,7 +1,7 @@
 //#------------------GLOBAL-IMPORTS------------------#
 import Image from 'next/image'
 import Link from 'next/link'
-import Router from 'next/router'
+import {useRouter} from 'next/router'
 //#------------------LOCAL-IMPORTS-------------------#
 import { 
     AccountContainer,
@@ -20,6 +20,8 @@ const AccountComponent: React.FC = () => {
     const [checkUser] = useLazyQuery(QUERY_USER_BY_PUBLIC_ADDRESS)
     const [verifyUser] = useMutation(VERIFY_USER)
     const [address, setAddress ] = useState("NOT CONNECTED")
+    
+    
     useEffect(() => {
         getAccount().then((result) => {
           console.log("CONNECTED ACCOUNT:", result);
@@ -40,9 +42,14 @@ interface HeaderProps {
     isMobile: boolean;
 }
 const HeaderComponent: React.FC = () => {
+    const Router = useRouter()
+    console.log(Router.pathname);
     return (
         <HeaderContainer>
+            
             <HeaderSide>
+                {Router.pathname === "/" ? 
+                <>
                 <Link href="#home-section">
                     <HeaderLink>HOME</HeaderLink>
                 </Link>
@@ -58,6 +65,7 @@ const HeaderComponent: React.FC = () => {
                 <Link href="#ecosystem-section">
                     <HeaderLink>ECOSYSTEM</HeaderLink>
                 </Link>
+                </>: null}
             </HeaderSide> 
 
             <LogoContainer>
