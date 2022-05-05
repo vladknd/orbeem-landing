@@ -1,7 +1,6 @@
 //#------------------GLOBAL-IMPORTS------------------#
 import Image from 'next/image'
 import Link from 'next/link'
-import { verifyJwt } from '../../auth/auth.module'
 import Router from 'next/router'
 //#------------------LOCAL-IMPORTS-------------------#
 import { 
@@ -11,7 +10,7 @@ import {
     LogoContainer,
     HeaderLink
 } from './Header.styled'
-import { connectUser, getAccount } from '../../web3/web3Utils'
+import { getAccount } from '../../web3/web3Utils'
 import { QUERY_USER_BY_PUBLIC_ADDRESS } from '../../graphql/queries/user.queries'
 import { useLazyQuery, useMutation } from '@apollo/client'
 import { VERIFY_USER } from '../../graphql/mutations/user.mutations'
@@ -30,10 +29,7 @@ const AccountComponent: React.FC = () => {
     return(
         <AccountContainer
         onClick={async ()=> {
-            const authenticated = verifyJwt()
-            console.log("AUTH", authenticated);
-            if(authenticated) Router.push("/profile")
-            if(!authenticated) connectUser(checkUser, verifyUser)
+            
         }}>
             {address}
         </AccountContainer>
