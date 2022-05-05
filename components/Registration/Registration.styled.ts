@@ -8,6 +8,7 @@ export const RegistrationBackground = styled.div`
     width: 100%;
     height: 100vh;
     background: rgba(56, 56, 56, 0.5);
+    background-image: url('/bg.jpg');
     backdrop-filter: blur(20px);
 
     position: fixed;

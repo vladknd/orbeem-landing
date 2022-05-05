@@ -7,6 +7,7 @@ import Router from 'next/router';
 
 declare let window: any;
 
+//-------------------------------------------------------------------------------------------------------------
 export const buyToken = async (amountUSDT: number) => {
     if(typeof window.ethereum !== "undefined"){
         const numberOfTokens = ethers.utils.parseUnits(amountUSDT.toString(), 18);
@@ -74,23 +75,34 @@ export const withdrawORBM = async () => {
         await tx.wait()
     }
 }
+//-------------------------------------------------------------------------------------------------------------
+
 
 export const getAccount = async () => {
-    let web3
-    if(window.ethereum){
-        // window.ethereum.request({ method: 'eth_requestAccounts' });
-        web3 =  await window.ethereum 
-    } else if(window.web3){
-        web3 = await window.web3.currentProvider
-    } else{
-        console.log("NO METAMASK")
-    }
+    const web3 = await checkMetaMask()
     const provider = new ethers.providers.Web3Provider(web3)
     await provider.send("eth_requestAccounts", []);
     const accounts = await provider.listAccounts()
     console.log("ADDR", accounts);
     
     return accounts[0]
+}
+
+export const checkMetaMask = async () => {
+    let web3
+    if(window.ethereum){
+        // window.ethereum.request({ method: 'eth_requestAccounts' });
+        web3 =  await window.ethereum 
+        console.log("WEB3", web3)
+        return web3
+    } else if(window.web3){
+        web3 = await window.web3.currentProvider
+        console.log("WEB3", web3)
+        return web3
+    } else{
+        console.log("NO METAMASK")
+        alert("INSTALL METAMASK")
+    }
 }
 
 export const signMessage = async (nonce: string, publicAddress: string) => {
@@ -112,27 +124,87 @@ export const signMessage = async (nonce: string, publicAddress: string) => {
     }
 }
 
-export const connectUser = async (checkUser:any, verifyUser: any) => {
+//-------------------------------------LOGIN--------------------------------------------------------
+export const login = async () => {
+    console.log("LOGIN PROCEDURE INITIATED..")
+    
     const addr = await getAccount()
-    console.log("DONE", addr);
-                    
-    const {data} = await checkUser({variables: {publicAddress: addr}})
-    if(!data.findUserByAddress){
-        console.log("USER NOT FOUND")
-    } else {
-        const { nonce, publicAddress } = data.findUserByAddress
+    console.log("LOGIN PROCEDURE: CURRENT ADDRESS", addr);
+
+    console.log("LOGIN PROCEDURE: CHECK USER REQUEST")
+    const checkUserRes = await fetch("http://localhost:4000/graphql", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            query: `
+                query Query($publicAddress: String!) {
+                    findUser(publicAddress: $publicAddress) {
+                    publicAddress
+                    nonce
+                    }
+                }
+            `,
+            variables: {
+                publicAddress: addr
+            }
+        })
+    })
+    const checkUserData = await checkUserRes.json()
+    console.log("LOGIN PROCEDURE: CHECK USER DATA", checkUserData);
+
+    if(!checkUserData.data.findUser){
+        console.log("LOGIN PROCEDURE: USER NOT FOUND")
+        Router.push('/registration')
+        throw new Error("USER DOES NOT EXIST")
+    } else { 
+        const { nonce, publicAddress } = checkUserData.data.findUser
         const sigMsg = await signMessage(nonce, publicAddress)
-        console.log("SIG",sigMsg)
-        const token = await verifyUser({variables: sigMsg})
-        console.log(token);
-        setCookies("jwt", token.data.verifyUser.token)
-        Router.push('profile')
+        console.log("LOGIN PROCEDURE: SIGNATURE",sigMsg)
+
+        console.log("LOGIN PROCEDURE: USER VERIFICATION REQUEST")
+        const verifyUserRes = await fetch("http://localhost:4000/graphql", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                query: `
+                    mutation VerifyUser($publicAddress: String!, $signature: String!) {
+                        verifyUser(publicAddress: $publicAddress, signature: $signature) {
+                            token,
+                            user {
+                                publicAddress
+                                firstName
+                                surname
+                                email
+                                username
+                            }
+                        }
+                    }
+                `,
+                variables: sigMsg
+    
+            })
+        })
+        const verifyUserData = await verifyUserRes.json()
+        console.log("LOGIN PROCEDURE: VERIFY USER DATA", verifyUserData)
+
+        const token = verifyUserData.data.verifyUser.token
+        const user = verifyUserData.data.verifyUser.user
+        console.log("LOGIN PROCEDURE:TOKEN", token);
+        console.log("LOGIN PROCEDURE:USER", user);
+        setCookies("jwt", token)
+        console.log("LOGIN PROCEDURE: COOKIES SET")
+        
+        return user
     }
 }
 
 export const checkAdmin = async () => {
     const addr = await getAccount()
     console.log("DONE", addr);
-    if(addr === "0x83799E98349124b3b30D9D9635bD66A381f22f24") return true
+    if(addr === "0x16bD38012725eFEc123C31338Ab724573813e36C") return true
     return false
 }

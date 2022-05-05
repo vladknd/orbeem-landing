@@ -11,25 +11,31 @@ import {
     LogoContainer,
     HeaderLink
 } from './Header.styled'
-import { connectUser } from '../../web3/web3Utils'
+import { connectUser, getAccount } from '../../web3/web3Utils'
 import { QUERY_USER_BY_PUBLIC_ADDRESS } from '../../graphql/queries/user.queries'
 import { useLazyQuery, useMutation } from '@apollo/client'
 import { VERIFY_USER } from '../../graphql/mutations/user.mutations'
+import { useEffect, useState } from 'react'
 
 const AccountComponent: React.FC = () => { 
     const [checkUser] = useLazyQuery(QUERY_USER_BY_PUBLIC_ADDRESS)
     const [verifyUser] = useMutation(VERIFY_USER)
-    
+    const [address, setAddress ] = useState("NOT CONNECTED")
+    useEffect(() => {
+        getAccount().then((result) => {
+          console.log("CONNECTED ACCOUNT:", result);
+          setAddress(result)
+        })
+      }, [])
     return(
-        <AccountContainer>
-            <button
-                onClick={async ()=> {
-                    const authenticated = verifyJwt()
-                    console.log("AUTH", authenticated);
-                    if(authenticated) Router.push("/profile")
-                    if(!authenticated) connectUser(checkUser, verifyUser)
-                }}
-            >GO</button>
+        <AccountContainer
+        onClick={async ()=> {
+            const authenticated = verifyJwt()
+            console.log("AUTH", authenticated);
+            if(authenticated) Router.push("/profile")
+            if(!authenticated) connectUser(checkUser, verifyUser)
+        }}>
+            {address}
         </AccountContainer>
     )
 }

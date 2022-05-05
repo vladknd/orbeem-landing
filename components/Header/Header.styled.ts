@@ -48,10 +48,15 @@ export const HeaderLink = styled.a`
 `
 
 export const AccountContainer = styled.div`
-    width: 400px;
     height: 50px;
     border-radius: 25px;
-    background-color: #A4A4A4;
-    opacity: 0.2;
-    /* color: white; */
+    background-color: rgba(112, 112, 112, 0.24);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border: 1px solid transparent;
+    &:hover {
+        border: 1px solid #6d52d1;
+        background-color: rgba(112, 112, 112, 0.14);
+    }
 `

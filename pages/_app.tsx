@@ -1,18 +1,14 @@
-import '../styles/globals.css'
 import type { AppProps } from 'next/app'
+import { ApolloProvider } from '@apollo/client'
+import '../styles/globals.css'
 import '../styles/fonts/fonts.css'
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
-import { UserProvider } from '../auth/userContext'
 
-const client = new ApolloClient({
-  uri: 'https://orbeem-landing-api.herokuapp.com/graphql',
-  cache: new InMemoryCache(),
-});
+import { UserProvider} from '../auth/userContext'
+import { graphClient } from '../graphql'
 
 function MyApp({ Component, pageProps }: AppProps) {
-
   return (
-    <ApolloProvider client={client}>
+    <ApolloProvider client={graphClient}>
       <UserProvider>
         <Component {...pageProps} />
       </UserProvider>

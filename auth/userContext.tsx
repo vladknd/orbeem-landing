@@ -20,6 +20,8 @@ const UserContextDefault = {
   setLoggedOut: () => {},
 }
 
+
+
 export const UserContext = React.createContext<IUserContext>(UserContextDefault)
 
 export const UserProvider = (props: any) => {
