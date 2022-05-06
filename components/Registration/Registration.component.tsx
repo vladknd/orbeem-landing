@@ -5,7 +5,7 @@ import React,
   useEffect, 
   useState 
 } from 'react'
-
+import { useRouter } from 'next/router'
 import { useMutation } from '@apollo/client'
 //#------------------LOCAL-IMPORTS-------------------#
 import { Button } from '../../styles/Components.styled'
@@ -16,7 +16,6 @@ import {
     RegistrationForm,
     ModalHeader,
     Input,
-    ModalLabel,
     InputContainer
 } from './Registration.styled'
 
@@ -38,7 +37,7 @@ interface InputProps {
   setter: React.Dispatch<SetStateAction<RegData | null>>;
 }
 
-//INPUT-COMPONENT:
+//---------------------------------------------------------INPUT-COMPONENT:
 const InputField = ({label, name, setter}: InputProps) => {
   return (
     <InputContainer>
@@ -51,19 +50,16 @@ const InputField = ({label, name, setter}: InputProps) => {
   )
 }
 
-//REGISTRATION-COMPONENT:
+//--------------------------------------REGISTRATION-COMPONENT:
 const RegistrationComponent = () => {
+  const Router = useRouter()
   const [regData, SetRegData] = useState<RegData | null>(null)
   
   useEffect(() => {
     setAddress()
   }, [])
 
-  useEffect(() => {
-    console.log(regData);
-    
-  })
-
+  
   const setAddress = async () => {
     const addr = await getAccount()
     SetRegData({publicAddress: addr})
@@ -77,27 +73,28 @@ const RegistrationComponent = () => {
               REGISTRATION
             </ModalHeader>
 
-            <RegistrationForm onSubmit={() => {
-              signUp({variables: {
+            <RegistrationForm onSubmit={async (event) => {
+              event.preventDefault()
+              const newUser = await signUp({variables: {
                   publicAddress: regData?.publicAddress,
                   username: regData?.username,
                   email: regData?.email,
                   firstName: regData?.firstName,
                   surname: regData?.surname
               }})
+              console.log("NEW USER", newUser);
+              Router.push("/profile")
             }}>
               <InputField label="Username" name="username" setter={SetRegData}/>
               <InputField label="Email" name="email" setter={SetRegData}/>
               <InputField label="First Name" name="firstName" setter={SetRegData}/>
               <InputField label="Surname" name="surname" setter={SetRegData}/>
               
-              
               <Button width="250px" height="70px" mt="20px" type="submit">
                 SIGN UP
               </Button>
             </RegistrationForm>
             
-
         </RegistrationModal>
     </RegistrationBackground>
   )

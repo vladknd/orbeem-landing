@@ -106,18 +106,16 @@ const ProfileInfo = () => {
                 PROFILE INFO
             </BoxHeader>
             <InfoField placeholder={user?.username ? user.username : ""} label="USERNAME:"/>
-            <InfoField placeholder="voznitsa98@gmail.com" label="EMAIL:"/>
-            <InfoField placeholder="vlad" label="FIRST NAME:"/>
-            <InfoField placeholder="voznitsa" label="LAST NAME:"/>
+            <InfoField placeholder={user?.email ? user.email : ""} label="EMAIL:"/>
+            <InfoField placeholder={user?.firstName ? user.firstName : ""} label="FIRST NAME:"/>
+            <InfoField placeholder={user?.surname ? user.surname : ""} label="LAST NAME:"/>
         </InfoContainer>
     )
 }
 
 
-
 //-----------------USER-PROFILE COMPONENT--------------------------------
 const UserProfile: React.FC = () => {
-    
     return(
         <UserContianer>
             <Calculator/>
