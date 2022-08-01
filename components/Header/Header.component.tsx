@@ -11,34 +11,34 @@ import {
     HeaderLink,
     MetamaskLogo
 } from './Header.styled'
-import { getAccount } from '../../web3/web3Utils'
+// import { getAccount } from '../../web3/web3Utils'
 import { QUERY_USER_BY_PUBLIC_ADDRESS } from '../../graphql/queries/user.queries'
 import { useLazyQuery, useMutation } from '@apollo/client'
 import { VERIFY_USER } from '../../graphql/mutations/user.mutations'
 import { useEffect, useState } from 'react'
 import { useWeb3 } from '../../services/web3.services'
 
-const AccountComponent: React.FC = () => { 
-    const [checkUser] = useLazyQuery(QUERY_USER_BY_PUBLIC_ADDRESS)
-    const [verifyUser] = useMutation(VERIFY_USER)
-    const [address, setAddress ] = useState("NOT CONNECTED")
+// const AccountComponent: React.FC = () => { 
+//     const [checkUser] = useLazyQuery(QUERY_USER_BY_PUBLIC_ADDRESS)
+//     const [verifyUser] = useMutation(VERIFY_USER)
+//     const [address, setAddress ] = useState("NOT CONNECTED")
     
     
-    useEffect(() => {
-        getAccount().then((result) => {
-          console.log("CONNECTED ACCOUNT:", result);
-          setAddress(result)
-        })
-      }, [])
-    return(
-        <AccountContainer
-        onClick={async ()=> {
+//     useEffect(() => {
+//         getAccount().then((result) => {
+//           console.log("CONNECTED ACCOUNT:", result);
+//           setAddress(result)
+//         })
+//       }, [])
+//     return(
+//         <AccountContainer
+//         onClick={async ()=> {
             
-        }}>
-            {address}
-        </AccountContainer>
-    )
-}
+//         }}>
+//             {address}
+//         </AccountContainer>
+//     )
+// }
 
 interface HeaderProps {
     isMobile: boolean;
