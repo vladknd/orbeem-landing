@@ -13,7 +13,7 @@ import {
   IndexContainer 
 } from '../styles/pages/Index.styled'
 import EcosystemComponent from '../components/Ecosystem/Ecosystem.component'
-import { getAccount } from '../web3/web3Utils'
+// import { getAccount } from '../web3/web3Utils'
 
 const Home: NextPage = () => {
   //ADAPTIVE:
