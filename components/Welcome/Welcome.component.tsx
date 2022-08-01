@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
 import Router from 'next/router'
 //#------------------LOCAL-IMPORTS-------------------#
-import { login } from '../../web3/web3Utils'
+// import { login } from '../../web3/web3Utils'
 import data from './Welcome.data'
 //-------------------STYLED-COMPONENTS:
 import { 
@@ -44,7 +44,7 @@ const WelcomeComponent: React.FC<MainProps> = ({
                  {data.text}
                 </WelcomeText> 
 
-                <WelcomeButton
+                {/* <WelcomeButton
                     mt="30px"
                     align="center"
                     onClick={() => {
@@ -57,7 +57,7 @@ const WelcomeComponent: React.FC<MainProps> = ({
                             console.log("ERROR:", error)  
                         })
                     }}
-                >CONNECT</WelcomeButton>
+                >CONNECT</WelcomeButton> */}
 
             </WelcomeContent>
             <WelcomeImage>
