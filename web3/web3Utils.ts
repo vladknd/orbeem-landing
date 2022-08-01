@@ -1,13 +1,13 @@
 // import Market from '../ABI/Market'
-import DAI from '../ABI/DAI';
+// import DAI from '../ABI/DAI';
 
-import { ethers } from 'ethers';
-import { setCookies } from 'cookies-next';
-import Router from 'next/router';
+// import { ethers } from 'ethers';
+// import { setCookies } from 'cookies-next';
+// import Router from 'next/router';
 
-declare let window: any;
-const vendorContract = "0x72B52c1D413CfDF585334352098a0ED49973836D"
-const daiContract = "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063"
+// declare let window: any;
+// const vendorContract = "0x72B52c1D413CfDF585334352098a0ED49973836D"
+// const daiContract = "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063"
 //-------------------------------------------------------------------------------------------------------------
 // export const buyToken = async (amountUSDT: number) => {
 //     if(typeof window.ethereum !== "undefined"){
