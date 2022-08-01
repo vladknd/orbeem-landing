@@ -8,13 +8,15 @@ import {
     HeaderContainer,
     HeaderSide,
     LogoContainer,
-    HeaderLink
+    HeaderLink,
+    MetamaskLogo
 } from './Header.styled'
 import { getAccount } from '../../web3/web3Utils'
 import { QUERY_USER_BY_PUBLIC_ADDRESS } from '../../graphql/queries/user.queries'
 import { useLazyQuery, useMutation } from '@apollo/client'
 import { VERIFY_USER } from '../../graphql/mutations/user.mutations'
 import { useEffect, useState } from 'react'
+import { useWeb3 } from '../../services/web3.services'
 
 const AccountComponent: React.FC = () => { 
     const [checkUser] = useLazyQuery(QUERY_USER_BY_PUBLIC_ADDRESS)
@@ -43,7 +45,12 @@ interface HeaderProps {
 }
 const HeaderComponent: React.FC = () => {
     const Router = useRouter()
+    const {connectWeb3, publicAddress} = useWeb3()
     console.log(Router.pathname);
+    useEffect(()=> {
+        console.log(publicAddress);
+        
+    },[])
     return (
         <HeaderContainer>
             
@@ -77,7 +84,20 @@ const HeaderComponent: React.FC = () => {
             </LogoContainer>
 
             <HeaderSide>
-                <AccountComponent/>
+                <AccountContainer
+                    onClick={async() => {
+                        if(!publicAddress){
+                            await connectWeb3()
+                        } else {
+                            Router.push("profile")
+                        }
+                    }}
+                >
+                    <MetamaskLogo>
+                        <Image src="/metamask.svg" width={25} height={25} layout="intrinsic" />
+                    </MetamaskLogo>
+                    {publicAddress ? publicAddress : "CONNECT METAMASK"}
+                </AccountContainer>
             </HeaderSide>
         </HeaderContainer>
     );

@@ -14,8 +14,8 @@ interface TextProps {
 }
 
 export const GlowText = styled.p`
-    font-family: ${(props: TextProps) => props.font || "Arial"};
-    font-weight: ${(props: TextProps) => props.bold ? "bold" : "normal"};
+    font-family: ${(props: TextProps) => props.font || "Inter"};
+    font-weight: ${(props: TextProps) => props.bold ? "bold" : "300"};
     font-size: ${(props: TextProps) => props.size ? props.size : "80px"};
 
     color: white;
@@ -27,7 +27,7 @@ export const GlowText = styled.p`
     
     text-shadow: 0px 0px 6px rgba(29, 173, 255, 0.25), 0px 0px 33px #B04BFF;
     
-
+    letter-spacing: 7px;
     @media(max-width: 600px) {
         font-size: 50px;
     }
@@ -95,14 +95,23 @@ export const Divider = styled.div`
 
 
 export const Box = styled.div`
-    background: rgba(14, 14, 14, 0.7);
-    box-shadow: inset -5px -4px 4px rgba(0, 0, 0, 0.25), 
-    inset 4px 4px 4px rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(41px);
+    border: 0.1px solid rgba(117.117,117, 0.8);
     border-radius: 15px;
+
+    background: rgba(14, 14, 14, 0.7);
+
+    box-shadow: inset -5px -4px 4px rgba(0, 0, 0, 0.25);
+    
 `
+
 export const BoxHeader = styled.h2`
+    
+    font-family: Inter;
+    font-weight: 200;
+    font-size: 35px;
+    letter-spacing: 8px;
     color: white;
+
 `
 
 export const LoadingContainer = styled.div`

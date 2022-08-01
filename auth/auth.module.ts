@@ -13,7 +13,7 @@ export const useAuthorize = () => {
 
     useEffect(() => {
         const jwt = getCookie("jwt")
-        
+
         verifyJwt({variables: {token: jwt}}).then((result) => {
           console.log("VERIFY JWT REQUEST:",result);
           const user = result.data.verifyJwt

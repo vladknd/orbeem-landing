@@ -9,6 +9,7 @@ interface IWithdrawComponent {
     title: string;
     amount: string;
     image: string;
+    callbackFunc: () => void
 }
 const WithdrawComponent = (props: IWithdrawComponent) => {
     return (
@@ -23,7 +24,7 @@ const WithdrawComponent = (props: IWithdrawComponent) => {
 
             <Button width="300px" height="80px"
                 onClick={() => {
-                    withdrawORBM()
+                    props.callbackFunc()
                 }}
             >WITHDRAW</Button>
         </WithdrawContainer>
@@ -47,8 +48,8 @@ const AdminProfile: React.FC = () => {
     
     return(
       <AdminContainer>
-          <WithdrawComponent title="DAI AVAILABLE:" amount={DAI} image="/DAI.svg"/>
-          <WithdrawComponent title="ORBM AVAILABLE:" amount={ORBM} image="/ORB.svg"/>
+          <WithdrawComponent title="DAI AVAILABLE:" amount={DAI} image="/DAI.svg" callbackFunc={withdrawDAI}/>
+          <WithdrawComponent title="ORBM AVAILABLE:" amount={ORBM} image="/ORB.svg" callbackFunc={withdrawORBM}/>
       </AdminContainer>
     )
 }

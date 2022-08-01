@@ -1,4 +1,4 @@
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client'
+import { ApolloClient, InMemoryCache,} from '@apollo/client'
 
 export const graphClient = new ApolloClient({
     uri: 'https://orbeem-landing-api.herokuapp.com/graphql',

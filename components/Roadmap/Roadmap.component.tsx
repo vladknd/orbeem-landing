@@ -23,10 +23,9 @@ interface IPhaseComponent extends IPhaseContent {
 const PhaseComponent = (props: IPhaseComponent) => {
     return(
         <PhaseContainer>
-        <Divider/>
             <PhaseContent direction={props.direction}>
                 <PhaseImage>
-                    <Image src={props.imgSrc} width={280} height={280}/>
+                    <Image src={props.imgSrc} width={800} height={800}/>
                 </PhaseImage>
                 
                 <PhaseInfo>
@@ -34,7 +33,7 @@ const PhaseComponent = (props: IPhaseComponent) => {
                     <PhaseText>{props.text}</PhaseText>
                 </PhaseInfo>
             </PhaseContent>
-        <Divider/>
+        
         </PhaseContainer>
     )
 }
@@ -50,6 +49,7 @@ const RoadmapComponent = () => {
             <PhaseComponent direction={EDirection.left} imgSrc={phases[2].image} header={phases[2].header} text={phases[2].text}/>
             <PhaseComponent direction={EDirection.right} imgSrc={phases[3].image} header={phases[3].header} text={phases[3].text}/>
             <PhaseComponent direction={EDirection.left} imgSrc={phases[4].image} header={phases[4].header} text={phases[4].text}/>
+            <Divider/>
         </RoadmapContainer>
     )
 }

@@ -22,6 +22,11 @@ import {
 import { REGISTER_USER } from '../../graphql/mutations/user.mutations'
 
 //INTERFACES:
+
+
+
+
+//---------------------------------------------------------INPUT-COMPONENT:
 interface RegData {
   publicAddress?: string;
   username?: string;
@@ -29,15 +34,12 @@ interface RegData {
   firstName?: string;
   surname?: string;
 }
-
 interface InputProps {
   label: string;
   name: string;
 
   setter: React.Dispatch<SetStateAction<RegData | null>>;
 }
-
-//---------------------------------------------------------INPUT-COMPONENT:
 const InputField = ({label, name, setter}: InputProps) => {
   return (
     <InputContainer>
@@ -69,7 +71,7 @@ const RegistrationComponent = () => {
   return (
     <RegistrationBackground>
         <RegistrationModal>
-            <ModalHeader >
+            <ModalHeader>
               REGISTRATION
             </ModalHeader>
 

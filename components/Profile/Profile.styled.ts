@@ -1,18 +1,21 @@
 import styled from 'styled-components'
 import { Box } from '../../styles/Components.styled'
 export const UserContianer = styled.div`
+    margin-top: 120px;
+
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: start;
-    margin-top: 120px;
+    
+    height: 90vh;
 `
 
 
 //-------------CALCULATOR-----------------------
 export const CalculatorContainer = styled(Box)`
-    width: 500px;
-    height: 600px;
+    width: 50%;
+    height: 90%;
 
     display: flex;
     flex-direction: column; 
@@ -28,10 +31,14 @@ export const Input = styled.input`
     outline: none;
     //TODO: ADD border color on focus
 `
-export const InputContainer = styled.div`
+export const FieldContainer = styled.div`
+    margin-bottom: 20px;
+    padding: 0px 10px;
+
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
 
     width: 80%;
     height: 50px;
@@ -40,8 +47,18 @@ export const InputContainer = styled.div`
     border-radius: 12px;
     background-color: rgba(164, 164, 164, 0.17);
 
-    padding: 0px 8px;
-    margin-bottom: 20px;
+
+`
+
+export const FieldText = styled.p`
+    font-family: Inter;
+    font-weight: 200;
+    font-size: 18px;
+    letter-spacing: 3px;
+
+    color: white;
+
+
 `
 
 export const PriceContainer = styled.div`
@@ -82,4 +99,20 @@ export const FieldLabel = styled.p`
     width: 150px;
 
     margin: 0px 10px;
+`
+
+export const WalletContainer = styled(Box)`
+    padding: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 40%;
+    height: 90%;
+`
+
+export const WalletImage = styled.div`
+    margin-bottom: 30px;
+    height: 30%;
+    width: 30%;
 `

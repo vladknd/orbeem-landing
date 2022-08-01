@@ -8,19 +8,23 @@ import AdminProfile from '../components/Profile/AdminProfile'
 import { useAuthorize } from '../auth/auth.module'
 import { LoadingContainer } from '../styles/Components.styled'
 import Image from 'next/image'
-import {checkAdmin} from '../web3/web3Utils'
+// import {checkAdmin} from '../web3/web3Utils'
+import { useWeb3 } from '../services/web3.services'
 
 
 const Profile: NextPage = () => {
   //ROLE-CHECKING:
-  const [admin, setAdmin] = useState<boolean>(false)
-  const [authorized, loading] = useAuthorize()
-  useEffect(()=> {
-    checkAdmin().then(result => {
-      if(result) setAdmin(true)
-    })
-  },[])
-  if(loading || !authorized) return (
+  // const [admin, setAdmin] = useState<boolean>(false)
+  // const [authorized, loading] = useAuthorize()
+  
+  // useEffect(()=> {
+  //   checkAdmin().then(result => {
+  //     if(result) setAdmin(true)
+  //   })
+  // },[])
+  
+  const {connectWeb3, publicAddress} = useWeb3()
+  if(!publicAddress) return (
     <LoadingContainer>
       <Image src="/loading.svg" width={200} height={200}/>
     </LoadingContainer>
@@ -29,10 +33,7 @@ const Profile: NextPage = () => {
   return (
     <ProfileContainer>
       <HeaderComponent/>
-      { admin
-        ? <AdminProfile/>
-        : <UserProfile/>
-      }
+      <UserProfile/>
     </ProfileContainer>
   )
 }

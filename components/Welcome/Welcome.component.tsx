@@ -17,7 +17,8 @@ import {
     WelcomeContent,
     WelcomeHeader,
     WelcomeText,
-    WelcomeImage
+    WelcomeImage,
+    WelcomeButton
 } from './Welcome.styled'
 import { useUser } from '../../auth/userContext'
 
@@ -35,15 +36,15 @@ const WelcomeComponent: React.FC<MainProps> = ({
     return (
         <WelcomeContainer id="home-section">
             <WelcomeContent>
-                <GlowText>
-                 {data.header}
-                </GlowText>
+                <WelcomeHeader>
+                    ORBEEM <br/> Play-to-Earn <br/> Game-Fi <br/>  Metaverse
+                </WelcomeHeader>
             
                 <WelcomeText>
                  {data.text}
                 </WelcomeText> 
 
-                <Button
+                <WelcomeButton
                     mt="30px"
                     align="center"
                     onClick={() => {
@@ -56,11 +57,11 @@ const WelcomeComponent: React.FC<MainProps> = ({
                             console.log("ERROR:", error)  
                         })
                     }}
-                >CONNECT</Button>
+                >CONNECT</WelcomeButton>
 
             </WelcomeContent>
             <WelcomeImage>
-                <Image src="/welcome.webp" width={isMobile ? 600 : 600} height={isMobile ? 600 : 600}/>
+                <Image src="/welcome.webp" width={800} height={800}/>
             </WelcomeImage>
         </WelcomeContainer>
     )
