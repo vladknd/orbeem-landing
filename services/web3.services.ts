@@ -85,7 +85,14 @@ export const signMessage = async (nonce: string, publicAddress: string) => {
   }
 }
 //______________________________________________________________________________
-
+export const getBalance = async (_address: string) => {
+  console.log("GOT ADDRESS", _address);
+  const web3 = await checkMetaMask()
+  const provider = new ethers.providers.Web3Provider(web3)
+  const balance = await provider.getBalance(_address)
+  
+  return ethers.utils.formatEther(balance)
+}
 
 export const useWeb3 = () => {
   return useContext(Web3Context)

@@ -16,11 +16,11 @@ import {
 } from "./Profile.styled"
 import {BoxHeader} from '../../styles/Components.styled'
 // import { buyToken } from '../../web3/web3Utils'
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useQuery } from '@apollo/client'
 import { UserContext, useUser} from '../../auth/userContext'
-import { buyORB } from "../../services/orb.service";
-import { useWeb3 } from "../../services/web3.services";
+import { buyORB, getORBBalance } from "../../services/orb.service";
+import { getBalance, useWeb3 } from "../../services/web3.services";
 
 //-------------------CALCULATOR-COMPONENT----------------------------------
 interface IInputField {
@@ -78,8 +78,8 @@ const Field = (props: IField) => {
 
 const Calculator: React.FC = () => {
     //--------AMOUNT OF DAI ENTERED:
-    const [amountDAI, setAmount] = useState<number>(0)
-    console.log(amountDAI)
+    const [amountMATIC, setMATIC] = useState<number>(0)
+    console.log(amountMATIC)
     const { publicAddress } = useWeb3()
 
     if(publicAddress) {return (
@@ -89,15 +89,16 @@ const Calculator: React.FC = () => {
                 PURCHASE TOKENS
             </BoxHeader>
 
-            <InputField placeholder="DAI" image="/DAI.svg"
+            <InputField placeholder="MATIC" image="/Polygon.svg"
                 change={(e)=> {
-                    setAmount(e.target.value)
+                    setMATIC(e.target.value)
                 }}
             />
-            <InputField placeholder="ORB" image="/ORB.svg" value={amountDAI/0.1}/>
+
+            <InputField placeholder="ORB" image="/ORB.svg" value={amountMATIC/0.1}/>
             <Button width="200px" height="60px"
                 onClick={() => {
-                    buyORB().then((_promise) => {
+                    buyORB(String(amountMATIC)).then((_promise) => {
                         console.log("SOOOO", _promise);
                         
                     })
@@ -110,6 +111,21 @@ const Calculator: React.FC = () => {
 }
 
 const Wallet: React.FC = () => {
+    const [orb, setORB] = useState<string>('0')
+    const [matic, setMATIC] = useState<string>('0')
+
+    const {publicAddress} = useWeb3()
+    useEffect(()=> {
+        if(publicAddress){
+            getORBBalance(publicAddress).then((_orb)=> {
+                setORB(_orb)
+            })
+            getBalance(publicAddress).then((_matic)=> {
+                setMATIC(_matic)
+            })
+
+        }
+    }, [publicAddress])
     return (
         <WalletContainer>
             <WalletImage>
@@ -119,8 +135,8 @@ const Wallet: React.FC = () => {
                 WALLET
             </BoxHeader>
 
-            <Field img="/ORB.svg" text="1000"/>
-            <Field img="/polygon.svg" text="1000"/>
+            <Field img="/ORB.svg" text={orb}/>
+            <Field img="/polygon.svg" text={matic}/>
         </WalletContainer>
     )
 }
